@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.css">
+</head>
+<body>
+    <div class="flex-container">
+        <nav id="sidebar" data-state="open">
+            <button class="close-sidebar">&#10006;</button>
+            <div class="logo-name">
+                <div class="logo-image">
+                    <img src="../assets/images/logo.png" alt="Siris Bookshop Logo">
+                </div>
+                <span class="logo_name">Siris Bookshop</span>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="index.html" id="home"><i class="fas fa-book"></i>Home</a></li>
+                    <li><a href="pages/books.html" id="all"><i class="fas fa-book-open"></i>All</a></li>
+                    <li><a href="pages/categories.html" id="categories"><i class="fas fa-th-list"></i>Categories</a></li>
+                    <li><a href="pages/authors.html" id="authors"><i class="fas fa-user"></i>Authors</a></li>
+                    <li><a href="pages/cart.html" id="cart"><i class="fas fa-heart"></i>Cart</a></li>
+                </ul>
+                <div class="user-info">
+                    <div class="user-img">
+                        <img src="../assets/images/user.jpeg" alt="User Image">
+                    </div>
+                    <div class="user-name">
+                        <span>Sireen Al Zoughbi</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="content flex">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+            <div class="header">
+                <div class="search-section">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search for books...">
+                </div>
+                <button class="filter-button" onclick="showFilter()">
+                    <i class="fas fa-sliders-h"></i> Filters
+                </button>
+                <div id="filterModal" class="filter-modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeFilter()">&times;</span>
+                        <h2>Filter Books</h2>
+                        <div class="filter-input-group">
+                            <label for="bookName">Book Name:</label>
+                            <input type="text" id="bookName" placeholder="Filter by book name...">
+                        </div>
+                        <div class="filter-input-group">
+                            <label for="bookCategory">Category:</label>
+                            <input type="text" id="bookCategory" placeholder="Filter by category...">
+                        </div>
+                        <div class="filter-input-group">
+                            <label for="bookRating">Rating (min):</label>
+                            <input type="number" id="bookRating" min="0" max="10" placeholder="Min rating (1-5)">
+                        </div>
+                        <div class="filter-input-group">
+                            <label for="bookPrice">Max Price:</label>
+                            <input type="number" id="bookPrice" min="0" placeholder="Max price">
+                        </div>
+                        <button onclick="filterBooks()">Apply Filter</button>
+                    </div>
+                </div>
+            </div>
+            <div id="book-list-container" style="display:none"></div>
+            <div id="book-list" class="book-list"></div>
+            <div id="book-details">
+                <span class="back-btn" onclick="showBookList()">Back to Books</span>
+                <div id="notification" class="hidden"></div>
+                <div class="details-box">
+                    <div class="main-book">
+                        <img id="details-image" src="" alt="Book Cover">
+                        <div class="description">
+                            <h1 id="details-title"></h1>
+                            <p id="details-des"></p>
+                            <h1 id="details-price"></h1>
+                            <p id="details-description"></p>
+                            <table>
+                                <tr>
+                                    <td>Author:</td>
+                                    <td id="details-author"></td>
+                                </tr>
+                                <tr>
+                                    <td>Publication Date:</td>
+                                    <td id="details-date"></td>
+                                </tr>
+                                <tr>
+                                    <td>Length:</td>
+                                    <td id="details-length"></td>
+                                </tr>
+                                <tr>
+                                    <td>ISBN:</td>
+                                    <td id="details-isbn"></td>
+                                </tr>
+                                <tr>
+                                    <td>Language:</td>
+                                    <td id="details-language"></td>
+                                </tr>
+                                <tr>
+                                    <td>QTY:</td>
+                                    <td>
+                                        <div class="qty-container">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="buttons">
+                                <button id="checkout-button" class="cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-books">
+                        <h2>Other Books</h2>
+                        <div id="other-books-list" class="book-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/cart.js"></script>
+    <script src="../js/filter.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/book-data.js"></script>
+    <script src="../js/book-info.js"></script>
+</body>
+</html>

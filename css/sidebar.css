@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f7f7f7;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  #notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50; /* Green color for success */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+  }
+
+  #notification.hidden {
+    display: none;
+  }
+
+  #notification.show {
+    opacity: 1;
+    display: block;
+  }
+  
+  .flex-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .qty-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .qty-container button {
+    border: none;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .qty-container input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  nav .logo-name {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  nav .logo-image {
+    display: flex;
+    min-width: 45px;
+  }
+  
+  nav .logo-image img {
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  nav .logo-name .logo_name {
+    margin-left: 14px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 70%;
+    padding: 0 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    font-size: 18px;
+    color: #a6a4a4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar ul li i {
+    font-size: 20px;
+    margin-right: 25px;
+    color: #a6a4a4;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #000;
+    font-weight: 600;
+  }
+  
+  /* Add a class for the active state */
+  .sidebar ul li .active {
+ /* Highlight the active item */
+    color: #000; /* Change the text color */
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sidebar ul li .active i {
+ /* Highlight the active item */
+    color: #000; /* Change the text color */
+    font-size: 20px;
+    font-weight: 600 !important;
+  }
+  
+  .sidebar li a{
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 25px;
+    color: #a6a4a4;
+    transition: color 0.3s ease;  
+  }
+  .sidebar .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    border-top: 1px solid #e6e5e5;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    background-color: #fff;
+  }
+  
+  .sidebar .user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  
+  .sidebar .user-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .sidebar .user-name span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    padding: 20px;
+    margin-left: 280px;
+    width: 100%;
+  }
+  
+  .search-section {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    margin-left: 20px;
+    position: relative;
+    flex: 1;
+  }
+  
+  .search-input {
+    padding: 10px 15px 10px 40px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .search-input::placeholder {
+    color: #bcbcbc;
+    font-weight: 500;
+  }
+  
+  .search-input:focus::placeholder {
+    font-size: 16px;
+    font-weight: 600;
+    color: #bcbcbc;
+  }
+  
+  .search-section .search-icon {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #aaa;
+    pointer-events: none;
+  }
+  
+  .filter-button {
+    display: flex;
+    margin-top: 4px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 40px ;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-button i {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  .filter-button:hover {
+    background-color: #f8f9fa;
+    border-color: #bbb;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .toggle-sidebar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
+    font-weight: 600;
+    display: none;
+    z-index: 11;
+    cursor: pointer;
+  }
+  
+  .close-sidebar {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background-color: transparent;
+    border: 0;
+    font-size: 25px;
+    font-weight: 500;
+    display: none;
+    z-index: 11;
+    cursor: pointer;
+  }
+  
+  .sections-container {
+    margin-left: 30px;
+    width: 98%;
+  }
+  
+  .header {
+    display: flex;
+    gap: 10px;
+    width: 95%;
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+@media (min-width: 768px) {
+  .toggle-sidebar,
+  .close-sidebar {
+    display: none;
+  }
+
+  nav {
+    display: block;
+  }
+
+  .content {
+    margin-left: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  nav.open {
+    display: block;
+    transform: translateX(0);
+  }
+
+  .toggle-sidebar {
+    display: block;
+  }
+
+  .close-sidebar {
+    display: block;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}

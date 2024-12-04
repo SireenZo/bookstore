@@ -1,0 +1,145 @@
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content h1{
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#cart-container {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    overflow-x: auto;
+    display: inline-block;
+}
+
+#summary-box {
+    padding: 20px;
+    margin-top: 55px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 20px;
+}
+
+.summary-table td {
+    padding: 8px 10px;
+}
+
+.summary-table td:first-child {
+    font-weight: bold;
+    color: #555;
+}
+
+#checkout-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #8488b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#checkout-btn:hover {
+    background-color: #61678b;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 10px 15px;
+}
+
+.cart-table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.cart-table td img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.cart-table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.delete-btn {
+    color: red;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.total-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    #cart-container {
+        width: 95%;
+    }
+
+    .cart-table th, .cart-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .total-price {
+        font-size: 14px;
+    }
+
+    #summary-box {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}

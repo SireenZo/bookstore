@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <title>Si Books</title>
+</head>
+<body>
+  <div class="flex-container">
+    <nav id="sidebar" data-state="open">
+      <button class="close-sidebar">&#10006;</button>
+      <div class="logo-name">
+        <div class="logo-image">
+          <img src="assets/images/logo.png" alt="Siris Bookshop Logo">
+        </div>
+        <span class="logo_name">Siris Bookshop</span>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li><a href="index.html" id="home"><i class="fas fa-book"></i>Home</a></li>
+          <li><a href="pages/books.html" id="all"><i class="fas fa-book-open"></i>All</a></li>
+          <li><a href="pages/categories.html" id="categories"><i class="fas fa-th-list"></i>Categories</a></li>
+          <li><a href="pages/authors.html" id="authors"><i class="fas fa-user"></i>Authors</a></li>
+          <li><a href="pages/cart.html" id="cart"><i class="fas fa-heart"></i>Cart</a></li>
+        </ul>
+        <div class="user-info">
+          <div class="user-img">
+            <img src="assets/images/user.jpeg" alt="User Image">
+          </div>
+          <div class="user-name">
+            <span>Sireen Al Zoughbi</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="content flex">
+      <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+      <div class="header">
+        <div class="search-section">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="search-input" class="search-input" placeholder="Search for books...">
+        </div>
+        <button class="filter-button">
+          <i class="fas fa-sliders-h"></i> Filters
+        </button>
+      </div>
+      <div class="sections-container grid-container">
+        <div id="notification" class="hidden"></div>
+        <div class="book-of-the-day item1">
+          <h2>Book of the Day</h2>
+          <div class="book main-book">
+            <img src="/assets/images/It Ends With Us - Colleen Hoover.jpeg" alt="It Ends With Us">
+            <div class="book-info">
+              <h1>The Fault in Our Stars</h1>
+              <p class="rating">by John Green | Category: Drama | Tag: Best Sellers | ⭐ 9.6</p>
+              <h2 id="details-price" class="price">$10</h2>
+              <p class="description">The story follows Lily Bloom, a young woman who falls in love with Ryle Kincaid, a charming neurosurgeon.</p>
+              <table>
+                <tr><td>Publisher:</td><td id="details-title">Atria Books</td></tr>
+                <tr><td>Publication Date:</td><td>August 2, 2016</td></tr>
+                <tr><td>Print Length:</td><td>384</td></tr>
+                <tr><td>ISBN:</td><td>9781501110368</td></tr>
+                <tr><td>Language:</td><td>English</td></tr>
+                <tr>
+                  <td>QTY:</td>
+                  <td>
+                    <div class="qty-container">
+                      <button>-</button>
+                      <input type="text" value="1">
+                      <button>+</button>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <div class="buttons">
+                <button id="checkout-button" class="cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="authors item2">
+          <div class="head">
+            <h2>Authors</h2>
+            <button class="see-all"><a href="pages/authors.html">See all</a></button>
+          </div>
+          <div class="author-list">
+            <div class="author">
+              <img src="assets/authorImages/Stephen King.jpeg" alt="Stephen King">
+              <div class="author-info">
+                <h4>Stephen King</h4>
+                <p>60 books - 4.8M reads</p>
+              </div>
+            </div>
+            <div class="author">
+              <img src="assets/authorImages/joanne Rowling.jpg" alt="Joanne Rowling">
+              <div class="author-info">
+                <h4>Joanne Rowling</h4>
+                <p>12 books - 1.4M reads</p>
+              </div>
+            </div>
+            <div class="author">
+              <img src="assets/authorImages/Ray Bradbury.jpg" alt="Ray Bradbury">
+              <div class="author-info">
+                <h4>Ray Bradbury</h4>
+                <p>10 books - 3.2M reads</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sales-books item3">
+          <h2>Free Books</h2>
+          <div class="book-list">
+            <div class="book-item">
+              <img src="assets/images/Flowers for Algernon.jpg" alt="Flowers for Algernon">
+              <p>Flowers for Algernon</p>
+            </div>
+            <div class="book-item">
+              <img src="assets/images/A Clockwork Orange.jpg" alt="Clockwork Orange">
+              <p>Clockwork Orange</p>
+            </div>
+            <div class="book-item">
+              <img src="assets/images/Pet Sematary.jpg" alt="Pet Sematary">
+              <p>Pet Sematary</p>
+            </div>
+            <div class="book-item">
+              <img src="assets/images/Pet Sematary.jpg" alt="Pet Sematary">
+              <p>Pet Sematary</p>
+            </div>
+          </div>
+        </div>
+        <div class="bestsellers item4">
+          <h2>Bestsellers</h2>
+          <div class="book-list">
+            <div class="book-item">
+              <img src="assets/images/1984.jpg" alt="Reasons to be Cheerful">
+              <p>1984</p>
+            </div>
+            <div class="book-item">
+              <img src="assets/images/Beyond Good and Evil.jpg" alt="Fresh Face">
+              <p>Beyond Good And Evil</p>
+            </div>
+            <div class="book-item">
+              <img src="assets/images/Emma.jpg" alt="Clockwork Orange">
+              <p>Emma</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script src="js/sidebar.js"></script>
+</body>
+</html>
