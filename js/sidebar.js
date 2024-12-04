@@ -62,15 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("/books")) {
+    if (window.location.pathname.includes("/bookStore/books")) {
         document.getElementById("all").classList.add("active");
-    } else if (window.location.pathname.includes("/index")) {
+    } else if (window.location.pathname.includes("/bookStore/index")) {
         document.getElementById("home").classList.add("active");
-    } else if (window.location.pathname.includes("/authors")) {
+    } else if (window.location.pathname.includes("/bookStore/authors")) {
         document.getElementById("authors").classList.add("active");
-    } else if (window.location.pathname.includes("/categories")) {
+    } else if (window.location.pathname.includes("/bookStore/categories")) {
         document.getElementById("categories").classList.add("active");
-    } else if (window.location.pathname.includes("/cart")) {
+    } else if (window.location.pathname.includes("/bookStore/cart")) {
         document.getElementById("cart").classList.add("active");
     }
 });
